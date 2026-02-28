@@ -1,0 +1,42 @@
+/* ================= BACKGROUND GRADIENT & WAVE ================= */
+body{
+  margin:0;
+  font-family:'Poppins',sans-serif;
+  min-height:100vh;
+  /* Gradient animasi */
+  background: linear-gradient(
+    120deg,
+    #0f172a,
+    #1e3a8a,
+    #0ea5e9,
+    #22d3ee
+  );
+  background-size:300% 300%;
+  animation:bgMove 12s ease infinite;
+  color:white;
+  overflow-x:hidden;
+  position:relative;
+}
+
+/* Animasi gradient bergerak */
+@keyframes bgMove{
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
+
+/* Overlay wave halus */
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  background: radial-gradient(circle, rgba(255,255,255,0.08) 20%, transparent 20%);
+  background-size:60px 60px;
+  animation:waveMove 10s linear infinite;
+  z-index:-2;
+}
+
+@keyframes waveMove{
+  from{transform:translateX(0)}
+  to{transform:translateX(-50%)}
+}
